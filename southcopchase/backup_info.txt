@@ -1,0 +1,17 @@
+﻿Backup Tarihi: 12/02/2024 15:01:12
+Kaynak: C:\Users\gamin\Desktop\altv-server\resources\southcopchase\src-web
+Hedef: C:\Users\gamin\Desktop\southcopchase-backup\backup_20241202_150112
+
+Önemli Dosyalar:
+- src/App.tsx
+- src/App.css
+- src/components/*
+- package.json
+- vite.config.ts
+
+Değişiklikler:
+- Login sistemi
+- Bildirim sistemi
+- Loading ekranı
+- Karakter oluşturma
+- Oyun modu seçimi

@@ -1,0 +1,327 @@
+﻿.character-creator {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+}
+
+.character-preview {
+  flex: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rotate-controls {
+  position: absolute;
+  bottom: 2rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.rotate-controls button {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.rotate-controls button:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.creator-interface {
+  width: 400px;
+  background: rgba(0, 0, 0, 0.9);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.tabs {
+  display: flex;
+  gap: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 1rem;
+}
+
+.tabs button {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.5);
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+}
+
+.tabs button.active {
+  color: white;
+  border-bottom: 2px solid #4CAF50;
+}
+
+.tab-content {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.heritage-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.slider-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.slider-group label {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9rem;
+}
+
+.parent-selector {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.5rem;
+  border-radius: 4px;
+}
+
+.parent-selector button {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.parent-selector button:hover {
+  color: #4CAF50;
+}
+
+input[type="range"] {
+  width: 100%;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+  -webkit-appearance: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 16px;
+  height: 16px;
+  background: #4CAF50;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+}
+
+.value {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.8rem;
+  text-align: right;
+}
+
+.save-button {
+  background: #4CAF50;
+  color: white;
+  border: none;
+  padding: 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.save-button:hover {
+  background: #45a049;
+  transform: translateY(-2px);
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.hair-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.style-selector {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 0.8rem;
+  border-radius: 4px;
+  margin: 1rem 0;
+}
+
+.style-selector button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  transition: all 0.3s ease;
+}
+
+.style-selector button:hover {
+  color: #4CAF50;
+}
+
+.style-selector span {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.color-grid {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.color-option {
+  width: 100%;
+  padding-bottom: 100%;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.color-option:hover {
+  transform: scale(1.1);
+}
+
+.color-option.active {
+  border-color: #4CAF50;
+  transform: scale(1.1);
+}
+
+/* Saç renkleri için CSS değişkenleri */
+:root {
+  --hair-color-0: #1C1F21;
+  --hair-color-1: #272A2C;
+  --hair-color-2: #312E2C;
+  --hair-color-3: #35261C;
+  --hair-color-4: #4B321F;
+  --hair-color-5: #5C3D27;
+  --hair-color-6: #6D4C35;
+  --hair-color-7: #6B503B;
+  --hair-color-8: #765C47;
+  /* Diğer renkler için devam edecek */
+}
+
+@media (max-width: 768px) {
+  .color-grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+/* Loading state */
+.loading {
+  position: relative;
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+.loading::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  margin: -10px 0 0 -10px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+/* Error message */
+.error-message {
+  position: absolute;
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255, 59, 48, 0.9);
+  padding: 1rem 2rem;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  z-index: 1000;
+  animation: slideDown 0.3s ease-out;
+}
+
+.error-message p {
+  margin: 0;
+  color: white;
+}
+
+.error-message button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+.error-message button:hover {
+  opacity: 1;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes slideDown {
+  from {
+    transform: translate(-50%, -100%);
+    opacity: 0;
+  }
+  to {
+    transform: translate(-50%, 0);
+    opacity: 1;
+  }
+}

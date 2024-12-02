@@ -1,0 +1,710 @@
+﻿/* Reset ve temel stiller */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+:root {
+  --panel-bg: rgba(18, 18, 18, 0.85);
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.7);
+  --button-green: #4CAF50;
+  --button-hover-green: #45a049;
+  --neutral-gray: rgba(75, 75, 75, 0.95);
+  --neutral-gray-hover: rgba(85, 85, 85, 0.95);
+}
+
+/* Ana container */
+.root-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #000;
+}
+
+.app-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Tema stilleri */
+.night {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                    url('https://i.imgur.com/F2lhkGt.jpeg');
+  backdrop-filter: blur(3px);
+}
+
+.day {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), 
+                    url('https://i.imgur.com/d7a9bjn.jpeg');
+  backdrop-filter: blur(3px);
+}
+
+.center-wrapper {
+  width: 400px;
+  padding: 20px;
+}
+
+/* Hata mesajı container */
+.error-container {
+  position: relative;
+  width: 100%;
+  padding: 15px 20px;
+  background: rgba(220, 53, 69, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 4px 15px rgba(220, 53, 69, 0.3);
+  animation: slideDown 0.3s ease-out forwards;
+  margin-bottom: 20px;
+  z-index: 100;
+}
+
+.error-container svg {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.error-container p {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Login container margin kaldır */
+.login-container {
+  margin-top: 0;
+}
+
+/* Responsive düzenlemeler */
+@media (max-width: 768px) {
+  .error-container {
+    padding: 12px 15px;
+  }
+}
+
+/* Login container */
+.login-container {
+  background: var(--panel-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 30px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.login-container:hover {
+  border-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* Form elemanları */
+.header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.header h1 {
+  font-size: 2.5rem;
+  color: var(--text-primary);
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  font-weight: bold;
+}
+
+.welcome-text {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.input-group {
+  position: relative;
+  width: 100%;
+  background: rgba(30, 30, 30, 0.6);
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.input-group:hover {
+  background: rgba(40, 40, 40, 0.6);
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.input-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-secondary);
+  font-size: 1rem;
+}
+
+input {
+  width: 100%;
+  padding: 14px 14px 14px 40px;
+  background: transparent;
+  border: none;
+  color: var(--text-primary);
+  font-size: 1rem;
+}
+
+input:focus {
+  outline: none;
+}
+
+input:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Buton stilleri */
+.login-button {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(76, 175, 80, 0.85);
+  position: relative;
+  overflow: hidden;
+}
+
+.login-button:hover {
+  transform: translateY(-2px) scale(1.01);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  border-color: rgba(255, 255, 255, 0.25);
+  background: rgba(76, 175, 80, 0.95);
+}
+
+.night .login-button {
+  background: rgba(139, 0, 0, 0.85);
+  box-shadow: 0 4px 15px rgba(139, 0, 0, 0.3);
+}
+
+.night .login-button:hover {
+  background: rgba(139, 0, 0, 0.95);
+  box-shadow: 0 6px 20px rgba(139, 0, 0, 0.4);
+}
+
+.login-button.loading {
+  opacity: 0.9;
+  cursor: not-allowed;
+}
+
+.login-button.loading::after {
+  display: none;
+}
+
+.button-icon {
+  transition: all 0.3s ease;
+}
+
+.loading .button-icon {
+  animation: spin 1s infinite linear;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Gece/Gündüz modu butonu */
+.mode-toggle {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 12px 24px;
+  background: var(--neutral-gray);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  color: var(--text-primary);
+  cursor: pointer;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.mode-toggle:hover {
+  background: var(--neutral-gray-hover);
+  transform: translateX(-50%) translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Animasyonlar */
+/* Animasyon değişkenleri */
+:root {
+  --transition-speed: 0.3s;
+  --transition-timing: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Container animasyonları */
+.login-container {
+  animation: fadeIn 0.5s var(--transition-timing);
+}
+
+/* Input animasyonları */
+.input-group {
+  transition: transform var(--transition-speed) var(--transition-timing),
+              box-shadow var(--transition-speed) var(--transition-timing),
+              border-color var(--transition-speed) var(--transition-timing);
+}
+
+.input-group:focus-within {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Button animasyonları */
+.login-button {
+  transition: transform var(--transition-speed) var(--transition-timing),
+              background var(--transition-speed) var(--transition-timing),
+              box-shadow var(--transition-speed) var(--transition-timing);
+}
+
+.login-button:not(:disabled):hover {
+  transform: translateY(-2px) scale(1.02);
+}
+
+.login-button:not(:disabled):active {
+  transform: translateY(1px) scale(0.98);
+}
+
+/* Mode toggle animasyonları */
+.mode-toggle {
+  transition: transform var(--transition-speed) var(--transition-timing),
+              background var(--transition-speed) var(--transition-timing),
+              box-shadow var(--transition-speed) var(--transition-timing);
+}
+
+.mode-toggle:hover {
+  transform: translateY(-2px);
+}
+
+/* Tema geçiş animasyonları */
+.app-container {
+  transition: background-image 0.8s var(--transition-timing),
+              filter 0.8s var(--transition-timing);
+}
+
+/* Error animasyonları */
+.error-container {
+  animation: slideDown 0.3s var(--transition-timing);
+}
+
+/* Field error animasyonları */
+.field-error {
+  animation: fadeIn 0.3s var(--transition-timing);
+}
+
+/* Loading animasyonları */
+.login-button.loading .button-icon {
+  animation: spin 1s linear infinite;
+}
+
+/* Keyframe animasyonları */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Hover efektleri */
+.input-group:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.night .login-button:not(:disabled):hover {
+  box-shadow: 0 6px 20px rgba(139, 0, 0, 0.4);
+}
+
+.day .login-button:not(:disabled):hover {
+  box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
+}
+
+/* Focus stilleri */
+input:focus {
+  outline: none;
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Disabled durumları */
+.login-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Responsive animasyonlar */
+@media (max-width: 768px) {
+  .login-container {
+    animation-duration: 0.3s;
+  }
+  
+  .input-group:focus-within {
+    transform: translateY(-1px);
+  }
+}
+
+/* Responsive/* Responsive tasarım */
+@media (max-width: 768px) {
+  .center-wrapper {
+    width: 90%;
+    max-width: 400px;
+  }
+  
+  .login-container {
+    padding: 25px;
+  }
+  
+  .header h1 {
+    font-size: 2rem;
+  }
+}
+
+
+
+
+
+
+
+
+
+/* Password field styles */
+.input-group {
+  position: relative;
+}
+
+.password-toggle {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.password-toggle:hover {
+  color: var(--text-primary);
+}
+
+.password-toggle:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.input-group input[type="password"],
+.input-group input[type="text"] {
+  padding-right: 40px;
+}
+
+/* Field error styles */
+.field-error {
+  color: #ff4444;
+  font-size: 0.8rem;
+  margin-top: 5px;
+  padding-left: 12px;
+}
+
+.input-group input.error {
+  border-color: #ff4444;
+}
+
+.input-group input.error:focus {
+  border-color: #ff6666;
+}
+
+
+
+
+
+
+.error-container {
+  position: absolute;
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255, 59, 48, 0.9);
+  padding: 1rem 2rem;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  z-index: 1000;
+  animation: slideInOut 3s ease-in-out forwards;
+}
+
+.error-container p {
+  margin: 0;
+  color: white;
+}
+
+@keyframes slideInOut {
+  0% {
+    transform: translate(-50%, -100%);
+    opacity: 0;
+  }
+  15% {
+    transform: translate(-50%, 0);
+    opacity: 1;
+  }
+  85% {
+    transform: translate(-50%, 0);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -100%);
+    opacity: 0;
+  }
+}
+
+
+
+/* Notification Styles */
+.notification-container {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 300px;
+  max-width: 400px;
+  padding: 15px 20px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  animation: slideInDown 0.3s ease-out, fadeOut 0.3s ease-in 2.7s forwards;
+}
+
+.notification-container.error {
+  background: linear-gradient(to right, rgba(220, 53, 69, 0.95), rgba(240, 73, 89, 0.95));
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.notification-container.success {
+  background: linear-gradient(to right, rgba(40, 167, 69, 0.95), rgba(60, 187, 89, 0.95));
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.notification-icon {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.9);
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1));
+}
+
+.notification-container p {
+  margin: 0;
+  color: white;
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+@keyframes slideInDown {
+  from {
+    transform: translate(-50%, -100%);
+    opacity: 0;
+  }
+  to {
+    transform: translate(-50%, 0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+/* Loading Screen için güncelleme */
+.loading-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+/* Notification Styles */
+.notification-container {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 300px;
+  max-width: 400px;
+  padding: 15px 20px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  animation: slideInDown 0.3s ease-out, fadeOut 0.3s ease-in 2.7s forwards;
+}
+
+.notification-container.error {
+  background: linear-gradient(to right, rgba(220, 53, 69, 0.95), rgba(240, 73, 89, 0.95));
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.notification-container.success {
+  background: linear-gradient(to right, rgba(40, 167, 69, 0.95), rgba(60, 187, 89, 0.95));
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.notification-icon {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.9);
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1));
+}
+
+.notification-container p {
+  margin: 0;
+  color: white;
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+@keyframes slideInDown {
+  from {
+    transform: translate(-50%, -100%);
+    opacity: 0;
+  }
+  to {
+    transform: translate(-50%, 0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+/* Loading Screen için güncelleme */
+.loading-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
